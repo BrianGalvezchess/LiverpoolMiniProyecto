@@ -4,7 +4,7 @@ import java.util.UUID
 
 data class Comentario(
     val id: String = UUID.randomUUID().toString(),
-    val nombre: String,
+    val author: String,
     val comentario: String,
     val rating: Float
 )
