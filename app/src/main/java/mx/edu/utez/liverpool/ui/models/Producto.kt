@@ -7,11 +7,11 @@ data class Producto(
     val brand: String,
     val name: String,
     val price: Double,
-    val rating: Float,
     val reviewCount: Int,
+    val rating: Float,
     val isFreeShipping: Boolean = true,
     val description: String,
-    @DrawableRes val image: Int?,
     val reviews: List<Comentario> = emptyList(),
-    val isFavorite: Boolean = false
+    val isFavorite: Boolean = false,
+    @DrawableRes val image: Int?
 )
