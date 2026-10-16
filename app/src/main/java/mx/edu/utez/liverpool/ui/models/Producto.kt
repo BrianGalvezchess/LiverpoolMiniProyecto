@@ -8,8 +8,10 @@ data class Producto(
     val name: String,
     val price: Double,
     val reviewCount: Int,
+    val rating: Float,
     val isFreeShipping: Boolean = true,
     val description: String,
     val reviews: List<Comentario> = emptyList(),
-    val isFavorite: Boolean = false
+    val isFavorite: Boolean = false,
+    @DrawableRes val image: Int?
 )

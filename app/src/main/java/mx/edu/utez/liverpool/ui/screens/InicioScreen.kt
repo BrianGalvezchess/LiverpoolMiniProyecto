@@ -8,7 +8,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonColors
 import androidx.compose.material3.MaterialTheme
@@ -28,47 +27,50 @@ import mx.edu.utez.liverpool.ui.theme.Pink80
 
 @Composable
 fun InicioScreen(
-    modifier: Modifier = Modifier,
-    onBackClick: () -> Unit
+    onNavigationToListado: () -> Unit,
+    modifier: Modifier = Modifier
 ) {
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Text("Liverpool",
-            style = MaterialTheme.typography.titleLarge,
-            color = Pink80,
-            fontSize = 15.em,
-            fontFamily = FontFamily.Serif
+        Image(
+            modifier = Modifier.padding(vertical = 50.dp)
+                .size(120.dp),
+            painter = painterResource(R.drawable.liverpool),
+            contentDescription = "Logo de Liverpool"
+        )
+
+        Text("Bienvenido a Liverpool",
+            style = MaterialTheme.typography.titleSmall,
+            color = Color.Black,
+            fontSize = 5.em
         )
         Text("Es parte de mi vida",
             style = MaterialTheme.typography.titleSmall,
-            color = Pink80,
-            fontSize = 6.em,
-            fontFamily = FontFamily.SansSerif
-        )
-
-        Image(
-            modifier = Modifier.padding(vertical = 50.dp)
-                .size(160.dp),
-            painter = painterResource(R.drawable.liverpool),
-            contentDescription = "Logo de Liverpool"
+            color = Color.Black,
         )
 
         Button(
             modifier = Modifier.fillMaxWidth()
                 .padding(50.dp)
                 .height(60.dp),
-            onClick = {  },
+            onClick = {
+                onNavigationToListado()
+            },
             colors = ButtonColors(
-                containerColor = Pink80,
+                containerColor = Pink40,
                 contentColor = Color.White,
-                disabledContainerColor = Pink80,
-                disabledContentColor = Pink40
+                disabledContainerColor = Pink40,
+                disabledContentColor = Pink80
             )
         ) {
-            Text("Entrar a Liverpool")
+            Text("Ver Productos",
+                style = MaterialTheme.typography.titleSmall,
+                color = Color.White,
+                fontSize = 3.em
+                )
         }
     }
 }
@@ -76,8 +78,7 @@ fun InicioScreen(
 @Preview(showBackground = true)
 @Composable
 fun InicioScreenPreview() {
-    // Si tu pantalla usa un ViewModel o callbacks, pasa datos ficticios
     InicioScreen(
-        onBackClick = {}
+        onNavigationToListado = {}
     )
 }
